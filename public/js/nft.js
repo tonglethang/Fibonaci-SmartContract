@@ -3,10 +3,12 @@ function getContractInstance (abi, address) {
     return contract;
 }
 
-async function getName (instance) {
-    return await instance.methods.name().call();
+// async function getName (instance, number) {
+//     return await instance.methods.name().call();
+// }
+async function getNumber(instance, number){
+    return await instance.methods.fibonacci(number).call();
 }
-
 async function mintToken(instance, address, from) {
     return await instance.methods.mint(address).send({from: from});
 }
